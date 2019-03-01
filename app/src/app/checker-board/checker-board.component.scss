@@ -1,0 +1,105 @@
+.board-container {
+    margin: 3rem;
+    width: 100%;
+    .status {
+        margin-left: 10%;
+        height: 16rem;
+        width: 100%;
+        text-align: left;
+    }
+    .score-container {
+        text-align: left;
+        border: 1px solid black;
+        margin: 0 1rem 1rem 1rem;
+        padding: 1rem;
+    }
+    .commentary-container {
+        margin-top: 7rem;
+        text-align: left;
+        word-wrap: normal;
+        max-width: 7rem;
+    }
+    .board {
+        text-align: center;
+        border:black solid 2px;
+        .board-row {
+            display: flex;
+            flex-direction:row;
+            .square-container {
+                .square {
+                    width: 50px;
+                    height: 50px;
+                    border: black 2px;
+                    &.color-red {
+                        background-color: white;
+                    }
+                    &.color-black {
+                        background-color: rgba(103, 100, 100, 0.432);
+                    }
+                    &.canSelect:hover {
+                        background-color: rgba(0, 0, 0, 0.432);
+                        cursor: pointer;
+                    } 
+                    &.selected {
+                        border: rgba(236, 214, 47, 0.85) solid 2px;
+                    }
+                    &.canMoveTo:hover {
+                        cursor: pointer;
+                        background-color: rgba(255, 34, 22, 0.495)
+                    }
+                    &.occupied {
+                        margin: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .checker {
+                            position: absolute;
+                            height: 30px;
+                            width: 30px;
+                            margin:auto;
+                            border-radius: 50%;
+                            z-index: 99;
+                            &.red {
+                                background-color: maroon;
+                            }
+                            &.black {
+                                background-color: black;
+                            }
+
+                            .king-container {
+                                position:relative;
+                                height: 100%;
+                                width: 100%;
+                                .king {
+                                  
+                                    background-color: gold;
+                                    margin-right:2px;
+                                    display:flex;
+                                    -webkit-mask: url('../../assets/crown.png') no-repeat;
+                                    mask: url('../../assets/crown.png') no-repeat;
+                                    -webkit-mask-size: cover;
+                                  
+                                }
+                                
+                            }
+                            
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+    .btn-container {
+        margin-left: 2.5rem;
+    }
+}
+
+
+
+
+
+
+
+
+

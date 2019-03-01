@@ -1,0 +1,9 @@
+{
+    "db" : {
+        "host" : "localhost",
+        "port" : 9001,
+        "name" : "ss_checkers",
+        "user" : "web",
+        "password": "8845Camp!321"
+    }
+}

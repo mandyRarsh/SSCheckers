@@ -1,0 +1,43 @@
+<div class="board-container row">
+  <div class="status">
+    <h1 *ngIf="playing && !gameOver">It's your turn, {{playerUp.name}} ({{playerUp.color}})</h1> 
+    <h1 *ngIf="gameOver">{{getWinner().name}} wins!</h1>
+  </div> 
+  <div class="col-2-md">
+   <div class="score-container">
+    <div>{{player1.name}} has {{player2.checkersJumped.length}} checker{{player2.checkersJumped.length == 1 ? '': 's'}}</div>
+    <div> {{player2.name}} has {{player1.checkersJumped.length}} checker{{player1.checkersJumped.length == 1 ? '': 's'}}</div>
+   </div>
+   <div class="commentary-container">
+     <div class="commentary">
+        {{commentary}}
+     </div>
+   </div>
+  </div>
+  <div class="board col-8-md">
+    <div class="board-row" *ngFor="let row of board">
+      <div class="square-container" *ngFor="let square of row">
+        <div class="square" (click)="selectSquare(square)" 
+            [ngClass]="{ 'color-red': square.color == 'red',
+                        'color-black': square.color == 'black',
+                        'occupied': square.occupied == true,
+                        'selected': square.occupiedBy?.selected,
+                        'canMoveToXXX': canMoveTo(square),
+                        'canSelect': canSelect(square?.occupiedBy) }">
+          <div *ngIf="square?.occupied" class="checker" [ngClass]="square?.occupiedBy?.color">
+            <div *ngIf="square?.occupiedBy?.isKing" class="king-container">
+              <svg viewBox="0 0 100 100" class="king"></svg>
+            </div>
+          </div>
+          <!-- {{square.location.x}}, {{square.location.y}} -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-2-md">
+    <div class="btn-container">
+      <button class="btn btn-primary" (click)="newGame()">NEW GAME</button>
+    </div>
+    
+  </div>
+</div>
